@@ -1,0 +1,5 @@
+framework module GTCountSDK {
+  umbrella header "GTCountSDK.h"
+  export *
+  module * { export * }
+}

@@ -1,0 +1,4 @@
+/* pages/ios/ios.wxss */
+.center {
+  text-align: center;
+}

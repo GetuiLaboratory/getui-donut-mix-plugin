@@ -1,0 +1,76 @@
+<!--pages/ios/ios.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+
+  <view class="quick-start-title">iOS 插件快速开始</view>
+
+  <view class="container quick-start-content">
+    <view wx:for="{{quickStartContents}}" class="quick-start-content-item">
+      <view>{{index+1}}.</view>
+      <view class="quick-start-content-item-text">{{item}}</view>
+    </view>
+  </view>
+
+  <button bindtap="onLoadPlugin" class="btn">点击加载多端插件</button>
+  
+  <view class="center">
+    <text>\n\n=========GTSDK SDK示例=========\n\n</text>
+  </view>
+
+  <button bindtap="gt_onStartSdk" class="btn">startsdk</button>
+
+  <button bindtap="gt_getVersion" class="btn">getVersion</button>
+
+  <button bindtap="setPushMode" class="btn">setPushMode</button>
+  <button bindtap="runBackgroundEnable" class="btn">runBackgroundEnable</button>
+  别名：
+  <button bindtap="bindAlias" class="btn">bindAlias</button>
+  <button bindtap="unbindAlias" class="btn">unbindAlias</button>
+  <button bindtap="setTags" class="btn">setTags</button>
+
+  角标：
+  <button bindtap="setBadge" class="btn">setBadge</button>
+  <button bindtap="setLocalBadge" class="btn">setLocalBadge</button>
+
+  LiveActivity：
+  <button bindtap="registerActivityToken" class="btn">registerActivityToken</button>
+
+  <button bindtap="registerPushToStartToken" class="btn">registerPushToStartToken</button>
+
+  <view class="center">
+    <text>\n\n=========IDO SDK示例=========\n\n</text>
+  </view>
+
+  配置(建议在startsdk之前调用）：
+
+  <button bindtap="setDebugEnable" class="btn">setDebugEnable</button>
+
+  <button bindtap="setApplicationGroupIdentifier" class="btn">setApplicationGroupIdentifier</button>
+
+  <button bindtap="setEventUploadInterval" class="btn">setEventUploadInterval</button>
+
+  <button bindtap="setEventForceUploadSize" class="btn">setEventForceUploadSize</button>
+
+  <button bindtap="setProfileUploadInterval" class="btn">setProfileUploadInterval</button>
+
+  <button bindtap="setProfileForceUploadSize" class="btn">setProfileForceUploadSize</button>
+
+  启动SDK
+  <button bindtap="ido_onStartSdk" class="btn">startsdk</button>
+
+  <button bindtap="ido_getVersion" class="btn">getVersion</button>
+
+  GTCID：
+  <button bindtap="getGtcId" class="btn">getGtcId</button>
+
+  计时事件：
+  <button bindtap="onBeginEvent" class="btn">onBeginEvent</button>
+  <button bindtap="onEndEvent" class="btn">onEndEvent</button>
+  计数事件：
+  <button bindtap="trackCountEvent" class="btn">trackCountEvent</button>
+
+  用户属性：
+  <button bindtap="setProfile" class="btn">setProfile</button>
+
+  <view class="quick-start-tips" bindtap="copyLink">更多 iOS 插件开发指引可点击 🔗 复制链接在浏览器打开查看</view>
+
+</scroll-view>

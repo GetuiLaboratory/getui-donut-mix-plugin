@@ -1,0 +1,36 @@
+PODS:
+  - GCIDOSDK (2.0.7.0):
+    - GTCommonSDK (>= 3.0.0.0)
+  - GTCommonSDK (3.1.5.0):
+    - ZXSDK
+  - GTSDK (3.0.7.0):
+    - GTCommonSDK (> 3.0.9.0)
+  - MyPlugin (1.0.0):
+    - GCIDOSDK
+    - GTSDK
+  - ZXSDK (3.3.1)
+
+DEPENDENCIES:
+  - MyPlugin (from `.`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - GCIDOSDK
+    - GTCommonSDK
+    - GTSDK
+    - ZXSDK
+
+EXTERNAL SOURCES:
+  MyPlugin:
+    :path: "."
+
+SPEC CHECKSUMS:
+  GCIDOSDK: 1b58850b49e89e5ce4179b228f2c41f2aa9b4f86
+  GTCommonSDK: 02831526860276875f9fc582d15905b7c4d937ae
+  GTSDK: eaf9a2200faeff205cec9a927e840db769a00eaa
+  MyPlugin: 2f97481f45daa84eb665e5e0ea590096d88c7a3c
+  ZXSDK: 184f25c5ffdab3222b1941d1dc4864c30341a942
+
+PODFILE CHECKSUM: a7807145ec11fb1217144626f3a0d55ab56aa834
+
+COCOAPODS: 1.15.2
