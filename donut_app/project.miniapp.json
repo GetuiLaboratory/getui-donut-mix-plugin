@@ -86,13 +86,20 @@
     },
     "ios": [
       {
-        "open": true,
+        "open": false,
         "pluginId": "wxed34e654870cba42",
-        "pluginVersion": "0.0.3",
+        "pluginVersion": "0.0.5",
         "loadWhenStart": true
       }
     ],
     "ios_backup": [
+      {
+        "open": true,
+        "pluginId": "wxed34e654870cba42",
+        "pluginVersion": "0.0.3"
+      }
+    ],
+    "android": [
       {
         "open": true,
         "pluginId": "wxed34e654870cba42",

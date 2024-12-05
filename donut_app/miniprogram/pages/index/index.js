@@ -54,14 +54,20 @@ Component({
       const {
         myPlugin
       } = this.data;
-      console.log("onStartSdk", myPlugin);
-      console.log("onStartSdk", myPlugin.gt_startSdk);
-      console.log("onStartSdk", myPlugin.startSdk);
-      myPlugin.gt_startSdk({
-        'appId': 'xXmjbbab3b5F1m7wAYZoG2',
-        'appKey': 'BZF4dANEYr8dwLhj6lRfx2',
-        'appSecret': 'yXRS5zRxDt8WhMW8DD8W05'
-      })
+      const deviceInfo = wx.getDeviceInfo()
+      if ("android" === deviceInfo.platform) {
+        myPlugin.gt_initialize()
+      }else{
+        console.log("onStartSdk", myPlugin);
+        console.log("onStartSdk", myPlugin.gt_startSdk);
+        console.log("onStartSdk", myPlugin.startSdk);
+        myPlugin.gt_startSdk({
+          'appId': 'xXmjbbab3b5F1m7wAYZoG2',
+          'appKey': 'BZF4dANEYr8dwLhj6lRfx2',
+          'appSecret': 'yXRS5zRxDt8WhMW8DD8W05'
+        })
+      }
+
     },
     gt_getVersion() {
       const {
@@ -75,11 +81,15 @@ Component({
       const {
         myPlugin
       } = this.data;
+      const deviceInfo = wx.getDeviceInfo()
+      if ("android" === deviceInfo.platform) {
+        myPlugin.ido_init({"channel":"donut","appid":"djYjSlFVMf6p5YOy2OQUs8"})
+      }else{
       console.log("onStartSdk", myPlugin);
       myPlugin.ido_startSdk({
         'appId': 'xXmjbbab3b5F1m7wAYZoG2',
         'channelId': ''
-      })
+      })}
     },
     ido_getVersion() {
       const {

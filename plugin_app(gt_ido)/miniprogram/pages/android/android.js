@@ -16,13 +16,24 @@ Page({
   },
 
   onLoadPlugin() {
+    const listener = (param) => {
+      console.log('onMiniPluginEvent listener '+JSON.stringify(param))
+      switch(param["method"]){
+          case "onReceiveClientId":
+              this.sdkMethod()
+            break
+      }
+      }
+
     wx.miniapp.loadNativePlugin({
       pluginId: miniAppPluginId,
       success: (plugin) => {
         console.log('load plugin success', plugin)
+        plugin.onMiniPluginEvent(listener)
         this.setData({
           myPlugin: plugin
         })
+        //plugin.gt_openNotification()
       },
       fail: (e) => {
         console.log('load plugin fail', e)
@@ -30,23 +41,81 @@ Page({
     })
   },
 
-  onUsePlugin() {
+ 
+  sdkMethod(){
+    const { myPlugin } = this.data
+    // myPlugin.gt_setTag({"tags":["a","b","c"],"sn":"1111"})
+    // myPlugin.gt_queryTag({"sn":"ddd"})
+   var id =  myPlugin.gt_getClientid()
+   console.log('plugin getClientid '+id)
+  //  myPlugin.gt_turnOffPush()
+  //  myPlugin.gt_turnOnPush()
+   var isPushTurnedOn = myPlugin.gt_isPushTurnedOn()
+   console.log('plugin isPushTurnedOn '+isPushTurnedOn)
+  //  myPlugin. gt_bindAlias({"alias":"12345"})
+  //  myPlugin. gt_unBindAlias({"alias":"12345"})
+  //  myPlugin. gt_setLocalBadge({"badge":2})
+  //  myPlugin.gt_sendFeedbackMessage({"taskid":"dddd",
+  // "messageid":"ddddd",actionid:90002})
+  },
+  copyLink() {
+    wx.setClipboardData({
+      data: 'https://dev.weixin.qq.com/docs/framework/dev/plugin/androidPlugin.html',
+    })
+  },
+
+  onUseIdoPlugin() {
     const { myPlugin } = this.data
     if (!myPlugin) {
       console.log('plugin is undefined')
       return
     }
-    const ret = myPlugin.mySyncFunc({ a: 'hello', b: [1,2] })
-    console.log('mySyncFunc ret:', ret)
-
-    myPlugin.myAsyncFuncwithCallback({ a: 'hello', b: [1,2] }, (ret) => {
-      console.log('myAsyncFuncwithCallback ret:', ret)
+    myPlugin.ido_setDebugEnable({"debugEnable":1})
+    
+    myPlugin.ido_setEventUploadInterval({
+      'timeMillis': 5000
+    }) 
+  
+    myPlugin.ido_setEventForceUploadSize({
+      'size': 30
+    }) 
+  
+    myPlugin.ido_setProfileUploadInterval({
+      'timeMillis':5000
     })
-  },
-
-  copyLink() {
-    wx.setClipboardData({
-      data: 'https://dev.weixin.qq.com/docs/framework/dev/plugin/androidPlugin.html',
+    
+    myPlugin.ido_setProfileForceUploadSize({
+       'size':5
     })
-  }
+    
+    myPlugin.ido_init({"channel":"donut","appid":"djYjSlFVMf6p5YOy2OQUs8"})
+    const gtcid =  myPlugin.ido_getGtcId()
+    console.log('getGtcId '+gtcid)
+    let ver = myPlugin.ido_getVersion()
+    console.log(ver)
+
+    myPlugin.ido_trackCountEvent(
+      {"eventId":"idididid","jsonObject":{"a":1,"b":"你好"},"withExt":"dddddddd"})
+
+      myPlugin.ido_setProfile({'jsonObject': {
+        'property1': 'value1',
+        'property2': 100
+      },
+      'withExt':'this is ext string3'})
+    
+      myPlugin.ido_onBeginEvent({"eventId":"qqqq","jsonObject":{"aaa":"ddddd"}})
+      myPlugin.ido_onEndEvent({"eventId":"qqqq","jsonObject":{"aaa":"ddddd"}})
+  
+    },
+
+    onUsePlugin() {
+      this.onUseIdoPlugin()
+      const { myPlugin } = this.data
+      if (!myPlugin) {
+        console.log('plugin is undefined')
+        return
+      }
+      myPlugin.gt_initialize()
+      console.log('initialize')
+    },
 })
