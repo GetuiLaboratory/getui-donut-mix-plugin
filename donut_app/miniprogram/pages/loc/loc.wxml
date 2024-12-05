@@ -1,0 +1,33 @@
+<!--pages/loc/loc.wxml-->
+<text>pages/loc/loc.wxml</text>
+
+ 
+<button bindtap="getLocation">
+          getLocation
+        </button>
+        <button bindtap="startLocationUpdate">
+          startLocationUpdate
+        </button>
+        <button bindtap="stopLocationUpdate">
+          stopLocationUpdate
+        </button>
+        
+        <button bindtap="getFuzzyLocation">
+          getFuzzyLocation
+        </button>
+        <button bindtap="chooseLocation">
+          chooseLocation
+        </button>
+        <button bindtap="choosePoi">
+          choosePoi
+        </button>
+        <button bindtap="chooseAddress">
+          chooseAddress
+        </button>
+        <button bindtap="toSetting">
+          toSetting
+        </button>
+
+        <button bindtap="getUserInfo">
+          getUserInfo
+        </button>

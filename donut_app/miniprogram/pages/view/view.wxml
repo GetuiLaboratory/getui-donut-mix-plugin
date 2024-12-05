@@ -1,0 +1,12 @@
+<view class="container page" data-weui-theme="{{theme}}">
+  <template is="head" data="{{title: 'view'}}" />
+  <view class="page-section-title">
+    <text>flex-direction: row\n横向布局</text>
+    <button open-type="share">分享</button>
+    <button bindtap="testShare">测试分享</button>
+
+    <text class="text-wrap" decode="{{true}}">页面参数query：{{ queryData }}
+    </text>
+  </view>
+  <template is="foot" />
+</view>
