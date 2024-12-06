@@ -150,21 +150,7 @@ repositories {
 }
 
 
-repositories {
-    maven {
-        url "https://mvn.getui.com/nexus/content/repositories/releases/"
-    }
 
-    maven { url 'https://developer.huawei.com/repo/' }
-
-    maven {
-        url 'https://maven.columbus.heytapmobi.com/repository/releases/'
-        credentials {
-            username 'nexus'
-            password 'c0b08da17e3ec36c3870fed674a0bcb36abc2e23'
-        }
-    }
-}
 
 dependencies {
     implementation "androidx.exifinterface:exifinterface:1.1.0"
