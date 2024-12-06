@@ -14,7 +14,8 @@
         </view>
 
         <button bindtap="gt_onStartSdk" class="btn">startsdk</button>
-
+        <button bindtap="launchNotification" class="btn">launchNotification</button>
+        
         <button bindtap="gt_getVersion" class="btn">getVersion</button>
         <view class="center">
           <text>\n\n=========IDO SDK示例=========\n\n</text>

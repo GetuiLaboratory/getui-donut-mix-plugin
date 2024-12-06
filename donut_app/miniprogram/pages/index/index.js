@@ -49,7 +49,7 @@ Component({
       // this.onLoadPlugin()
     },
 
-    // 以下是IDO SDK示例
+    // 以下是GTSDK SDK示例
     gt_onStartSdk() {
       const {
         myPlugin
@@ -66,6 +66,13 @@ Component({
           'appSecret': 'yXRS5zRxDt8WhMW8DD8W05'
         })
       }
+    },
+    launchNotification() {
+      const {
+        myPlugin
+      } = this.data;
+      let noti = myPlugin.gt_launchNotification()
+      console.log(noti)
     },
     gt_getVersion() {
       const {
