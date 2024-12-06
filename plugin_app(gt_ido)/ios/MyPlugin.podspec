@@ -13,4 +13,19 @@ Pod::Spec.new do |spec|
   spec.dependency 'GTSDK'
   spec.dependency 'GCIDOSDK'
 
+  # 所需的framework，多个用逗号隔开
+  spec.ios.frameworks = 'SystemConfiguration', 'CFNetwork','CoreTelephony','CoreLocation','AVFoundation','Security','AdSupport'
+
+  # “弱引用”所需的framework，多个用逗号隔开
+  spec.ios.weak_frameworks = 'UserNotifications','AppTrackingTransparency','Network'
+
+  # 所需的library，多个用逗号隔开
+  spec.ios.libraries = 'z','sqlite3.0','c++','resolv'
+
+  # 是否使用ARC，如果指定具体文件，则具体的问题使用ARC
+  spec.requires_arc = true
+
+  spec.swift_versions = ['5']
+
+
 end

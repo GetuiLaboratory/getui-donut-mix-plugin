@@ -42,7 +42,7 @@
   },
   "mini-ios": {
     "loadWhenStart": true,
-    "sdkVersion": "1.4.19",
+    "sdkVersion": "1.4.15",
     "toolkitVersion": "0.0.9",
     "useExtendedSdk": {
       "WeAppOpenFuns": true,

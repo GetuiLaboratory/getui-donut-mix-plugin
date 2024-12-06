@@ -32,8 +32,11 @@
     }
   },
   "mini-ios": {
-    "sdkVersion": "1.4.15",
+    "sdkVersion": "1.5.0",
     "toolkitVersion": "0.0.9",
+    "customInfoPlist": {
+      "GT_MinimumOSVersion": "11"
+    },
     "useExtendedSdk": {
       "WeAppOpenFuns": true,
       "WeAppNetwork": true,
@@ -88,15 +91,9 @@
       {
         "open": false,
         "pluginId": "wxed34e654870cba42",
-        "pluginVersion": "0.0.5",
-        "loadWhenStart": true
-      }
-    ],
-    "ios_backup": [
-      {
-        "open": true,
-        "pluginId": "wxed34e654870cba42",
-        "pluginVersion": "0.0.3"
+        "pluginVersion": "0.0.9",
+        "loadWhenStart": true,
+        "isFromLocal": false
       }
     ],
     "android": [

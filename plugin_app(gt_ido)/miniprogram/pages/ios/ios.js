@@ -144,6 +144,14 @@ Page({
     let ver = myPlugin.gt_getVersion()
     console.log(ver)
   },
+  launchNotification() {
+    const {
+      myPlugin
+    } = this.data;
+    let noti = myPlugin.gt_launchNotification()
+    console.log(noti)
+  },
+  
   // 以下是IDO SDK示例
   ido_onStartSdk() {
     const {

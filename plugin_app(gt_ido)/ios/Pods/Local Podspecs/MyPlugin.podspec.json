@@ -20,5 +20,32 @@
     "GCIDOSDK": [
 
     ]
-  }
+  },
+  "ios": {
+    "frameworks": [
+      "SystemConfiguration",
+      "CFNetwork",
+      "CoreTelephony",
+      "CoreLocation",
+      "AVFoundation",
+      "Security",
+      "AdSupport"
+    ],
+    "weak_frameworks": [
+      "UserNotifications",
+      "AppTrackingTransparency",
+      "Network"
+    ],
+    "libraries": [
+      "z",
+      "sqlite3.0",
+      "c++",
+      "resolv"
+    ]
+  },
+  "requires_arc": true,
+  "swift_versions": [
+    "5"
+  ],
+  "swift_version": "5"
 }
