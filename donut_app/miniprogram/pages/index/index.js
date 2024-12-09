@@ -46,29 +46,34 @@ Component({
       })
     },
     onLoad() {
-      this.onLoadPlugin()
+      // this.onLoadPlugin()
     },
 
-    // 以下是IDO SDK示例
+    // 以下是GTSDK SDK示例
     gt_onStartSdk() {
       const {
         myPlugin
       } = this.data;
+
       const deviceInfo = wx.getDeviceInfo()
       if ("android" === deviceInfo.platform) {
         console.log("onStartSdk android", myPlugin);
         myPlugin.gt_initialize()
-      }else{
+      } else {
         console.log("onStartSdk", myPlugin);
-        console.log("onStartSdk", myPlugin.gt_startSdk);
-        console.log("onStartSdk", myPlugin.startSdk);
         myPlugin.gt_startSdk({
           'appId': 'xXmjbbab3b5F1m7wAYZoG2',
           'appKey': 'BZF4dANEYr8dwLhj6lRfx2',
           'appSecret': 'yXRS5zRxDt8WhMW8DD8W05'
         })
       }
-
+    },
+    launchNotification() {
+      const {
+        myPlugin
+      } = this.data;
+      let noti = myPlugin.gt_launchNotification()
+      console.log(noti)
     },
     gt_getVersion() {
       const {

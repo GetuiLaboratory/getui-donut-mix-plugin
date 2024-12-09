@@ -20,6 +20,8 @@
 
   <button bindtap="gt_getVersion" class="btn">getVersion</button>
 
+  <button bindtap="launchNotification" class="btn">launchNotification</button>
+
   <button bindtap="setPushMode" class="btn">setPushMode</button>
   <button bindtap="runBackgroundEnable" class="btn">runBackgroundEnable</button>
   别名：

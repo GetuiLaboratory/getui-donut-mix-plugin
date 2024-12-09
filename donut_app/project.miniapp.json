@@ -46,8 +46,11 @@
     }
   },
   "mini-ios": {
-    "sdkVersion": "1.4.15",
+    "sdkVersion": "1.5.0",
     "toolkitVersion": "0.0.9",
+    "customInfoPlist": {
+      "GT_MinimumOSVersion": "11"
+    },
     "useExtendedSdk": {
       "WeAppOpenFuns": true,
       "WeAppNetwork": true,
@@ -91,6 +94,9 @@
       "NSLocalNetworkUsageDescription": "当前应用程序需要访问本地网络，如需修改描述请前往「project.miniapp.json - 隐私信息访问许可描述」修改，并且关闭「自动使用默认描述补全默认隐私信息访问许可」",
       "NSSystemAdministrationUsageDescription": "当前应用程序需要进行系统管理操作，如需修改描述请前往「project.miniapp.json - 隐私信息访问许可描述」修改，并且关闭「自动使用默认描述补全默认隐私信息访问许可」",
       "NSPhotoLibraryAddUsageDescription": "应用程序在请求访问照片库，如需修改描述请前往「project.miniapp.json - 隐私信息访问许可描述」修改，并且关闭「自动使用默认描述补全默认隐私信息访问许可"
+    },
+    "buildCloud": {
+      "useRemote": false
     }
   },
   "mini-plugin": {
@@ -100,17 +106,11 @@
     },
     "ios": [
       {
-        "open": false,
-        "pluginId": "wxed34e654870cba42",
-        "pluginVersion": "0.0.5",
-        "loadWhenStart": true
-      }
-    ],
-    "ios_backup": [
-      {
         "open": true,
         "pluginId": "wxed34e654870cba42",
-        "pluginVersion": "0.0.3"
+        "pluginVersion": "0.1.0",
+        "loadWhenStart": true,
+        "isFromLocal": false
       }
     ],
     "android": [

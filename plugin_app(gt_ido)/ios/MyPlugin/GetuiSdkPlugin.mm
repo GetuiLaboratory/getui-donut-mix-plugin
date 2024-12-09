@@ -38,7 +38,7 @@ WEAPP_EXPORT_PLUGIN_METHOD_SYNC(gt_setPushMode, @selector(setPushMode:))
 WEAPP_EXPORT_PLUGIN_METHOD_SYNC(gt_registerActivityToken, @selector(registerActivityToken:))
 WEAPP_EXPORT_PLUGIN_METHOD_SYNC(gt_registerPushToStartToken, @selector(registerPushToStartToken:))
 WEAPP_EXPORT_PLUGIN_METHOD_SYNC(gt_getVersion, @selector(gt_getVersion))
-
+WEAPP_EXPORT_PLUGIN_METHOD_SYNC(gt_launchNotification, @selector(getLaunchNotification))
 
 //IDO SDK API
 WEAPP_EXPORT_PLUGIN_METHOD_SYNC(ido_startSdk, @selector(ido_startSdk:))
@@ -140,9 +140,14 @@ WEAPP_EXPORT_PLUGIN_METHOD_SYNC(ido_getVersion, @selector(ido_getVersion))
     return [GeTuiSdk version];
 }
 
+- (id)getLaunchNotification {
+    NSLog(@"GTSDK>>>getLaunchNotification %@",_launchOptions);
+    return _launchOptions ? _launchOptions : @{};
+}
+
+
 - (id)mySyncFunc:(NSDictionary *)param {
     NSLog(@"mySyncFunc %@", param);
-        
     return @"mySyncFunc";
 }
 
@@ -159,15 +164,15 @@ WEAPP_EXPORT_PLUGIN_METHOD_SYNC(ido_getVersion, @selector(ido_getVersion))
 // 插件初始化方法，在注册插件后会被自动调用
 - (void)initPlugin {
     NSLog(@"GTSDK>>>initPlugin");
-    [self registerAppDelegateMethod:@selector(application:didFinishLaunchingWithOptions:)];
     [self registerAppDelegateMethod:@selector(application:didRegisterForRemoteNotificationsWithDeviceToken:)];
-    
+    [self registerAppDelegateMethod:@selector(application:didFinishLaunchingWithOptions:)];
     NSLog(@"IDOSDK>>>initPlugin");
 }
 
 //MARK: - application
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //插件工程不回调， 需要上传插件后在多端app中测试
     NSLog(@"GTSDK>>>didFinishLaunchingWithOptions _launchOptions=%@",launchOptions);
     _launchOptions = launchOptions;
     return YES;
