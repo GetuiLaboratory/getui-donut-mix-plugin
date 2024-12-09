@@ -1,7 +1,6 @@
 #个推SDK donut插件集成文档
 
 
-
 # **概述**
 
 个推运营工具SDK在 [donut平台](https://dev.weixin.qq.com)的插件示例。开发者需要将插件源码上传到donut插件管理库中使用。
@@ -9,9 +8,30 @@
 流程： 开发者需要先加载插件，后调用插件具体API，比如startSdk
 
 
-
-
 ## android API说明：
+### Android appid配置：
+
+```js
+// 厂商不使用也要留空字符串
+如:
+ "mini-android": {
+    "manifestPlaceholders": {
+      "GETUI_APPID": "个推appid",
+      "HUAWEI_APP_ID": "华为id",
+      "XIAOMI_APP_ID": "小米id",
+      "XIAOMI_APP_KEY": "小米key",
+      "OPPO_APP_KEY": "oppo key",
+      "OPPO_APP_SECRET": "oppo secret",
+      "VIVO_APP_ID": "vivo id",
+      "VIVO_APP_KEY": "vivo key",
+      "MEIZU_APP_ID": "meizu id",
+      "MEIZU_APP_KEY": "meizu key",
+      "HONOR_APP_ID": "honor"
+    },
+ }
+```
+
+
 
 ## iOS 使用说明：
 插件桥接了原生SDK API，原生SDK API具体说明可参考[官网文档中心 iOS API](https://docs.getui.com/ido/mobile/ios/api/)

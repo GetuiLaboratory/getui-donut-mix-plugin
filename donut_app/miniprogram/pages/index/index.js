@@ -56,6 +56,7 @@ Component({
       } = this.data;
       const deviceInfo = wx.getDeviceInfo()
       if ("android" === deviceInfo.platform) {
+        console.log("onStartSdk android", myPlugin);
         myPlugin.gt_initialize()
       }else{
         console.log("onStartSdk", myPlugin);

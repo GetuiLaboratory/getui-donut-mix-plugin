@@ -226,7 +226,7 @@ def processByBuildType(String buildType) {
     println "processByBuildType-${buildType} ${file.getAbsolutePath()} exists : ${file.exists()}"
     if (file.exists()) {
         buildValuesXmlList(buildType).each { it.execute(project) }
-        buildManifestXmlList(buildType).each { it.execute(project) }
+//        buildManifestXmlList(buildType).each { it.execute(project) }
     }
 }
 

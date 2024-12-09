@@ -1,0 +1,20 @@
+# 编译产物
+*.class
+*.dex
+*.o
+*.so
+*.apk
+*.ap_
+*.jar
+*.war
+*.ear
+
+# Android Studio相关
+/.idea/
+/.idea/
+/*.iws
+/.gradle/
+/.gradle/
+/build/
+/captures/
+/local.properties

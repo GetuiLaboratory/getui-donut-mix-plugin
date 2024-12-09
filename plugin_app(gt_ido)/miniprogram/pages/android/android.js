@@ -23,7 +23,7 @@ Page({
               this.sdkMethod()
             break
       }
-      }
+    }
 
     wx.miniapp.loadNativePlugin({
       pluginId: miniAppPluginId,
@@ -44,6 +44,8 @@ Page({
  
   sdkMethod(){
     const { myPlugin } = this.data
+    var  state =  myPlugin.gt_areNotificationsEnabled()
+    console.log('plugin notify state '+state)
     // myPlugin.gt_setTag({"tags":["a","b","c"],"sn":"1111"})
     // myPlugin.gt_queryTag({"sn":"ddd"})
    var id =  myPlugin.gt_getClientid()
