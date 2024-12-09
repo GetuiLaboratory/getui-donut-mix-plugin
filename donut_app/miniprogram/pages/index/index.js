@@ -24,18 +24,13 @@ Component({
         console.log('onMiniPluginEvent listener:', param)
       }
 
-      const listener2 = (param) => {
-        console.log('onMiniPluginEvent listener2:', param)
-      }
-
       wx.miniapp.loadNativePlugin({
         pluginId: miniAppPluginId,
         success: (plugin) => {
           console.log('load plugin success', plugin)
           //监听native的事件
           plugin.onMiniPluginEvent(listener1)
-          //可以设置多个监听
-          //plugin.onMiniPluginEvent(listener2)
+         
           this.setData({
             myPlugin: plugin
           })
@@ -68,12 +63,21 @@ Component({
         })
       }
     },
+
     launchNotification() {
+      
       const {
         myPlugin
       } = this.data;
-      let noti = myPlugin.gt_launchNotification()
-      console.log(noti)
+      const deviceInfo = wx.getDeviceInfo()
+      if ("android" === deviceInfo.platform) {
+        myPlugin. gt_requestNotifyPermission()
+        let noti = myPlugin.gt_areNotificationsEnabled()
+        console.log(noti)
+      }else{
+        let noti = myPlugin.gt_launchNotification()
+        console.log(noti)
+      }
     },
     gt_getVersion() {
       const {
