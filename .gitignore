@@ -1,0 +1,20 @@
+#过滤目录  
+GtSdkDemo-Swift/GtSdkDemo-swift.xcodeproj/xcshareddata/*
+GtSdkDemo-Manual/GtSdkDemo.xcodeproj/xcshareddata/*
+GtSdkDemo-Manual/GtSdkDemo/GetuiSdkSolution.xcworkspace/xcshareddata/*
+GtSdkDemo-Pods/GtSdkDemo.xcodeproj/xcshareddata/*
+GtSdkDemo-IPA/GtSdkDemo.xcodeproj/xcshareddata/*
+GtSdkDemo-IPA/Pods/*
+GtSdkDemo-IPA/Pods/Target Support Files/*
+GtSdkDemo-Pods/Podfile.lock
+GtSdkDemo-Pods/Pods/*
+GtSdkDemo-activitykit/GtSdkDemo-Pods/Pods/*
+
+2.4.x.x/GtSdkDemo-Manual/GtSdkDemo.xcodeproj/xcuserdata
+2.4.x.x/GtSdkDemo-Pods/Pods/Pods.xcodeproj/xcuserdata
+GtSdkLib/*
+GtSdkDemo-xcframework/GtSdkDemo-Pods/Podfile.lock
+GtSdkDemo-xcframework/GtSdkDemo-Pods/Pods/*
+xcuserdata
+GtSdkDemo-xcframework/GtSdkDemo-swift/GtSdkDemo-swift.xcodeproj/xcshareddata/xcschemes/*
+GtSdkDemo/Demo/GtSdkDemo-Pods/Pods/*

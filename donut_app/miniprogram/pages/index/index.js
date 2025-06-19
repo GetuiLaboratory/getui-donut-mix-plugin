@@ -32,6 +32,10 @@ Component({
         pluginId: miniAppPluginId,
         success: (plugin) => {
           console.log('load plugin success', plugin)
+          
+          let noti = plugin.gt_launchNotification()
+          console.log(noti)
+          
           //监听native的事件
           plugin.onMiniPluginEvent(listener1)
           //可以设置多个监听
@@ -51,10 +55,15 @@ Component({
 
     // 以下是GTSDK SDK示例
     gt_onStartSdk() {
+      //app onlaunch里也startsdk了哦
+      const app = getApp()
       const {
         myPlugin
-      } = this.data;
-
+      } = app.globalData;
+      // const {
+      //   myPlugin
+      // } = this.data;
+      
       const deviceInfo = wx.getDeviceInfo()
       if ("android" === deviceInfo.platform) {
         myPlugin.gt_initialize()
@@ -68,9 +77,15 @@ Component({
       }
     },
     launchNotification() {
+
+      const app = getApp()
       const {
         myPlugin
-      } = this.data;
+      } = app.globalData;
+
+      // const {
+      //   myPlugin
+      // } = this.data;
       let noti = myPlugin.gt_launchNotification()
       console.log(noti)
     },
