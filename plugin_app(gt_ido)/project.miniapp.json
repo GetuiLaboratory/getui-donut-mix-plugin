@@ -38,7 +38,10 @@
     "projectPath": "android",
     "archivePath": "app/src/main/assets/SaaA_embed/",
     "sdkKey": "0E5V7r1NuM",
-    "sdkKeySecret": "NP1KBZ9pwwnmMeSvLO1MgQ"
+    "sdkKeySecret": "NP1KBZ9pwwnmMeSvLO1MgQ",
+    "privateDescriptions": {
+      "POST_NOTIFICATIONS": "使用通知"
+    }
   },
   "mini-ios": {
     "loadWhenStart": true,
@@ -92,8 +95,16 @@
   "projectArchitecture": "multiPlatform",
   "mini-plugin": {
     "iosCertificate": {
-      "profile": "DL_Dev_comceicapp.mobileprovision",
-      "certificate": "Apple Development: Dong Lin (LKS5CPG7P6)"
-    }
+        "profile": "DL_Dev_comceicapp.mobileprovision",
+        "certificate": "Apple Development: Dong Lin (LKS5CPG7P6)"
+    },
+    "android": [
+      {
+        "open": true,
+        "pluginId": "",
+        "pluginVersion": "",
+        "pluginConfigPath": "miniapp/android/nativeResources/assets/miniapp-permission.json"
+      }
+    ]
   }
 }

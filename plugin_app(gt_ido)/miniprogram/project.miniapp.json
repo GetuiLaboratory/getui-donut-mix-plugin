@@ -61,5 +61,14 @@
       "enable": false
     },
     "enableOpenUrlNavigate": true
+  },
+  "mini-plugin": {
+    "android": [
+      {
+        "open": false,
+        "pluginId": "",
+        "pluginVersion": ""
+      }
+    ]
   }
 }

@@ -24,22 +24,13 @@ Component({
         console.log('onMiniPluginEvent listener:', param)
       }
 
-      const listener2 = (param) => {
-        console.log('onMiniPluginEvent listener2:', param)
-      }
-
       wx.miniapp.loadNativePlugin({
         pluginId: miniAppPluginId,
         success: (plugin) => {
           console.log('load plugin success', plugin)
-          
-          let noti = plugin.gt_launchNotification()
-          console.log(noti)
-          
           //监听native的事件
           plugin.onMiniPluginEvent(listener1)
-          //可以设置多个监听
-          //plugin.onMiniPluginEvent(listener2)
+         
           this.setData({
             myPlugin: plugin
           })
@@ -55,17 +46,13 @@ Component({
 
     // 以下是GTSDK SDK示例
     gt_onStartSdk() {
-      //app onlaunch里也startsdk了哦
-      const app = getApp()
       const {
         myPlugin
-      } = app.globalData;
-      // const {
-      //   myPlugin
-      // } = this.data;
-      
+      } = this.data;
+
       const deviceInfo = wx.getDeviceInfo()
       if ("android" === deviceInfo.platform) {
+        console.log("onStartSdk android", myPlugin);
         myPlugin.gt_initialize()
       } else {
         console.log("onStartSdk", myPlugin);
@@ -76,18 +63,21 @@ Component({
         })
       }
     },
-    launchNotification() {
 
-      const app = getApp()
+    launchNotification() {
+      
       const {
         myPlugin
-      } = app.globalData;
-
-      // const {
-      //   myPlugin
-      // } = this.data;
-      let noti = myPlugin.gt_launchNotification()
-      console.log(noti)
+      } = this.data;
+      const deviceInfo = wx.getDeviceInfo()
+      if ("android" === deviceInfo.platform) {
+        myPlugin. gt_requestNotifyPermission()
+        let noti = myPlugin.gt_areNotificationsEnabled()
+        console.log(noti)
+      }else{
+        let noti = myPlugin.gt_launchNotification()
+        console.log(noti)
+      }
     },
     gt_getVersion() {
       const {

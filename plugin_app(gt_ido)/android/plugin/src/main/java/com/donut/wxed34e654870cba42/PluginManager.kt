@@ -1,9 +1,18 @@
 package com.donut.wxed34e654870cba42
 
 import MainProcessTask
+import android.Manifest
 import android.app.Activity
+import android.app.AppOpsManager
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import com.getui.gs.sdk.GsManager
 import com.igexin.sdk.IUserLoggerInterface
 import com.igexin.sdk.PushConsts
@@ -18,20 +27,26 @@ import com.tencent.luggage.wxa.SaaA.plugin.SyncJsApi
 import com.tencent.mm.sdk.json.JSONUtils.forEach
 import org.json.JSONArray
 import org.json.JSONObject
+import java.lang.reflect.Method
 import kotlin.reflect.full.memberProperties
 import kotlin.reflect.jvm.isAccessible
 
 
 class PluginManager : NativePluginBase(), NativePluginInterface {
+
+    private var callback: (intent: Intent) -> Unit
     private val TAG = "PluginManager"
     private val mainProcessTask: MainProcessTask = MainProcessTask(Intent())
+
+
     companion object {
-          val IDO_GTCID = 200
-          val GT_LOG= -1
+        const val IDO_GTCID = 200
+        const val GT_LOG = -1
+        const val GT_NOTIFY_ENABLE = "-2"
     }
 
     init {
-        mainProcessTask.setClientCallback { intent: Intent ->
+        val callback: (intent: Intent) -> Unit = { intent: Intent ->
             val bundle = intent.extras!!
             Log.d(TAG, " Received data: ${bundle.getInt(PushConsts.CMD_ACTION)}")
             val action = bundle.getInt(PushConsts.CMD_ACTION)
@@ -85,9 +100,10 @@ class PluginManager : NativePluginBase(), NativePluginInterface {
                         toMap(intent.getSerializableExtra(PushConsts.KEY_NOTIFICATION_CLICKED) as GTNotificationMessage)
                 }
                 PushConsts.ACTION_NOTIFICATION_ENABLE -> {
-//                    areNotificationsEnabled(context, CheckUtils.areNotificationsEnabled(context))
-//                    map["method"] = "areNotificationsEnabled"
-//                    map["param"] = CheckUtils.areNotificationsEnabled()
+                    if (bundle.containsKey(PluginManager.GT_NOTIFY_ENABLE)) {
+                        map["method"] = "areNotificationsEnabled"
+                        map["param"] = bundle.getBoolean(GT_NOTIFY_ENABLE)
+                    }
                 }
                 PushConsts.ACTION_POPUP_SHOW -> {
 //                    onPopupMessageShow(context, bundle.getSerializable(PushConsts.KEY_POPUP_SHOW) as GTPopupMessage?)
@@ -108,6 +124,8 @@ class PluginManager : NativePluginBase(), NativePluginInterface {
                 this.sendMiniPluginEvent(map)
             }
         }
+        this.callback = callback;
+        mainProcessTask.setClientCallback(callback)
         mainProcessTask.execAsync()
     }
 
@@ -123,7 +141,39 @@ class PluginManager : NativePluginBase(), NativePluginInterface {
         this.mainProcessTask.setIntent(intent)
         this.mainProcessTask.execAsync()
         PushManager.getInstance().initialize(activity.applicationContext);
+        requestNotifyPermission(data, activity);
     }
+
+    @SyncJsApi(methodName = "gt_areNotificationsEnabled")
+    fun areNotificationsEnabled(data: JSONObject?, activity: Activity): Boolean {
+        return areNotificationsEnabled(activity);
+    }
+
+    @SyncJsApi(methodName = "gt_requestNotifyPermission")
+    fun requestNotifyPermission(data: JSONObject?, activity: Activity) {
+        val callback = this.callback;
+        this.requestPermission(
+            activity,
+            arrayOf(Manifest.permission.POST_NOTIFICATIONS)
+        ) { permissions, grantResults ->
+            if (permissions.contains(Manifest.permission.POST_NOTIFICATIONS) && grantResults != null && grantResults.size > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED
+            ) {
+                val intent = Intent()
+                val bundle = Bundle()
+                bundle.putInt(PushConsts.CMD_ACTION, PushConsts.ACTION_NOTIFICATION_ENABLE)
+                bundle.putBoolean(PluginManager.GT_NOTIFY_ENABLE, true)
+                intent.putExtras(bundle)
+                callback(intent)
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    Log.d(TAG,"requestPermissions")
+                    activity.requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS),1);
+                }
+            }
+        }
+    }
+
 
     @SyncJsApi(methodName = "gt_turnOnPush")
     fun turnOnPush(data: JSONObject?, activity: Activity) {
@@ -430,5 +480,41 @@ class PluginManager : NativePluginBase(), NativePluginInterface {
         return GsManager.getInstance().version
     }
 
+    fun areNotificationsEnabled(context: Context): Boolean {
+        try {
+            val CHECK_OP_NO_THROW = "checkOpNoThrow"
+            val OP_POST_NOTIFICATION = "OP_POST_NOTIFICATION"
+            if (Build.VERSION.SDK_INT >= 24) {
+                val mNotificationManager =
+                    context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                val mtd: Method =
+                    NotificationManager::class.java.getDeclaredMethod("areNotificationsEnabled")
+                return mtd.invoke(mNotificationManager) as Boolean
+            } else if (Build.VERSION.SDK_INT >= 19) {
+                val appOps = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
+                val appInfo: ApplicationInfo = context.applicationInfo
+                val pkg: String = context.applicationContext.packageName
+                val uid: Int = appInfo.uid
+                val appOpsClass = Class.forName(AppOpsManager::class.java.name)
+                val checkOpNoThrowMethod: Method = appOpsClass.getMethod(
+                    CHECK_OP_NO_THROW,
+                    Int::class.javaPrimitiveType,
+                    Int::class.javaPrimitiveType,
+                    String::class.java
+                )
+                val opPostNotificationValue = appOpsClass.getDeclaredField(OP_POST_NOTIFICATION)
+                val value = opPostNotificationValue.get(Int::class.javaPrimitiveType) as Int
+                return checkOpNoThrowMethod.invoke(
+                    appOps,
+                    value,
+                    uid,
+                    pkg
+                ) as Int == AppOpsManager.MODE_ALLOWED
+            }
+        } catch (e: Throwable) {
+            Log.e(TAG, "Error checking notifications enabled", e)
+        }
 
+        return true
+    }
 }

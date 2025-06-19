@@ -15,6 +15,20 @@
       "scanner": false,
       "xweb": false
     },
+    "manifestPlaceholders": {
+      "PUSH_APPID": "djYjSlFVMf6p5YOy2OQUs8",
+      "GETUI_APPID": "djYjSlFVMf6p5YOy2OQUs8",
+      "HUAWEI_APP_ID": "102527745",
+      "XIAOMI_APP_ID": "2882303761518401094",
+      "XIAOMI_APP_KEY": "5301840122094",
+      "OPPO_APP_KEY": "6a59a992cd46469aaa6ca9857a035e0c",
+      "OPPO_APP_SECRET": "29d76998a6a04e00b901e4457b1fdfa0",
+      "VIVO_APP_ID": "17675",
+      "VIVO_APP_KEY": "85230e35-6087-415c-bd3e-451f4835a1ef",
+      "MEIZU_APP_ID": "145221",
+      "MEIZU_APP_KEY": "79e81a8441644ffba489a4301feef8dd",
+      "HONOR_APP_ID": "11111"
+    },
     "icons": {
       "hdpi": "",
       "xhdpi": "",
@@ -103,7 +117,7 @@
       {
         "open": true,
         "pluginId": "wxed34e654870cba42",
-        "pluginVersion": "0.0.3"
+        "pluginVersion": "0.0.4"
       }
     ]
   }
