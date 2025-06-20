@@ -1,4 +1,4 @@
-REQUEST_URL="127.0.0.1:25220"
+REQUEST_URL="127.0.0.1:48653"
 
 echo "pwd ": $(pwd)
 echo "project path: " ${PROJECT_DIR}

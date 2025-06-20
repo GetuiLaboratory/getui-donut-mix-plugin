@@ -95,7 +95,7 @@
   "projectArchitecture": "multiPlatform",
   "mini-plugin": {
     "iosCertificate": {
-        "profile": "DL_Dev_comceicapp.mobileprovision",
+        "profile": "Dev_comceicapp.mobileprovision",
         "certificate": "Apple Development: Dong Lin (LKS5CPG7P6)"
     },
     "android": [

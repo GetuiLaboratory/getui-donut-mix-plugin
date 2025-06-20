@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		215E3209E46DCF1637AF955C /* libPods-wxed34e654870cba42.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B570371C85F8F3263B2EE72 /* libPods-wxed34e654870cba42.a */; };
+		411D349A2E053ECA00269522 /* wxed34e654870cba42_NSE.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 411D34922E053ECA00269522 /* wxed34e654870cba42_NSE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		41304CBC2D014E5C00E83119 /* GetuiIdoSdkPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 41304CBA2D014E5C00E83119 /* GetuiIdoSdkPlugin.h */; };
 		41304CBD2D014E5C00E83119 /* GetuiIdoSdkPlugin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41304CBB2D014E5C00E83119 /* GetuiIdoSdkPlugin.mm */; };
 		664508962AD0FC4A00F7B7C5 /* MiniPlugin.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 664508952AD0FC4A00F7B7C5 /* MiniPlugin.bundle */; };
@@ -23,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		411D34982E053ECA00269522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7E18E2D2A6E9A3800DF0D7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 411D34912E053ECA00269522;
+			remoteInfo = NotificationService;
+		};
 		665A30782A9706CF008EA4EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7E18E2D2A6E9A3800DF0D7B /* Project object */;
@@ -33,6 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		411D349B2E053ECA00269522 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				411D349A2E053ECA00269522 /* wxed34e654870cba42_NSE.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F70B34512A70F60B00BF238D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -47,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		411D34922E053ECA00269522 /* wxed34e654870cba42_NSE.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = wxed34e654870cba42_NSE.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		41304CBA2D014E5C00E83119 /* GetuiIdoSdkPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetuiIdoSdkPlugin.h; sourceTree = "<group>"; };
 		41304CBB2D014E5C00E83119 /* GetuiIdoSdkPlugin.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GetuiIdoSdkPlugin.mm; sourceTree = "<group>"; };
 		605F70D89164B5DFFDB4D02F /* Pods-wxed34e654870cba42.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wxed34e654870cba42.debug.xcconfig"; path = "Target Support Files/Pods-wxed34e654870cba42/Pods-wxed34e654870cba42.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,7 +92,35 @@
 		F7E18E522A6FA12C00DF0D7B /* demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = demo.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		411D349E2E053ECA00269522 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 411D34912E053ECA00269522 /* wxed34e654870cba42_NSE */;
+		};
+		411D34A42E053EE000269522 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				File.swift,
+			);
+			target = F7E18E342A6E9A3800DF0D7B /* demo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		411D34932E053ECA00269522 /* NotificationService */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (411D34A42E053EE000269522 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 411D349E2E053ECA00269522 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = NotificationService; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		411D348F2E053ECA00269522 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F70B34472A70F60B00BF238D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,6 +177,7 @@
 				F7E18E522A6FA12C00DF0D7B /* demo.entitlements */,
 				F7E18E372A6E9A3800DF0D7B /* demo */,
 				F70B344B2A70F60B00BF238D /* MyPlugin */,
+				411D34932E053ECA00269522 /* NotificationService */,
 				F7E18E362A6E9A3800DF0D7B /* Products */,
 				66AB6E5A2AA5F6EE0064C5DB /* Frameworks */,
 				F43741DB19BE56DD3505F898 /* Pods */,
@@ -140,6 +189,7 @@
 			children = (
 				F7E18E352A6E9A3800DF0D7B /* demo.app */,
 				F70B344A2A70F60B00BF238D /* wxed34e654870cba42.framework */,
+				411D34922E053ECA00269522 /* wxed34e654870cba42_NSE.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +227,28 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		411D34912E053ECA00269522 /* wxed34e654870cba42_NSE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 411D349F2E053ECA00269522 /* Build configuration list for PBXNativeTarget "wxed34e654870cba42_NSE" */;
+			buildPhases = (
+				411D348E2E053ECA00269522 /* Sources */,
+				411D348F2E053ECA00269522 /* Frameworks */,
+				411D34902E053ECA00269522 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				411D34932E053ECA00269522 /* NotificationService */,
+			);
+			name = wxed34e654870cba42_NSE;
+			packageProductDependencies = (
+			);
+			productName = NotificationService;
+			productReference = 411D34922E053ECA00269522 /* wxed34e654870cba42_NSE.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F70B34492A70F60B00BF238D /* wxed34e654870cba42 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F70B34552A70F60B00BF238D /* Build configuration list for PBXNativeTarget "wxed34e654870cba42" */;
@@ -204,11 +276,13 @@
 				F7E18E322A6E9A3800DF0D7B /* Frameworks */,
 				F70B3A932A779A9200BF238D /* Run Script */,
 				F70B34512A70F60B00BF238D /* Embed Frameworks */,
+				411D349B2E053ECA00269522 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				665A30792A9706CF008EA4EB /* PBXTargetDependency */,
+				411D34992E053ECA00269522 /* PBXTargetDependency */,
 			);
 			name = demo;
 			productName = testHook;
@@ -224,11 +298,15 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					411D34912E053ECA00269522 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					F70B34492A70F60B00BF238D = {
 						CreatedOnToolsVersion = 14.0;
 					};
 					F7E18E342A6E9A3800DF0D7B = {
 						CreatedOnToolsVersion = 14.0;
+						LastSwiftMigration = 1600;
 					};
 				};
 			};
@@ -247,11 +325,19 @@
 			targets = (
 				F7E18E342A6E9A3800DF0D7B /* demo */,
 				F70B34492A70F60B00BF238D /* wxed34e654870cba42 */,
+				411D34912E053ECA00269522 /* wxed34e654870cba42_NSE */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		411D34902E053ECA00269522 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F70B34482A70F60B00BF238D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +393,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		411D348E2E053ECA00269522 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F70B34462A70F60B00BF238D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +423,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		411D34992E053ECA00269522 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 411D34912E053ECA00269522 /* wxed34e654870cba42_NSE */;
+			targetProxy = 411D34982E053ECA00269522 /* PBXContainerItemProxy */;
+		};
 		665A30792A9706CF008EA4EB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F70B34492A70F60B00BF238D /* wxed34e654870cba42 */;
@@ -357,6 +455,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		411D349C2E053ECA00269522 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UYD4JZ9TLT;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ceic.app.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		411D349D2E053ECA00269522 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UYD4JZ9TLT;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ceic.app.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F70B34532A70F60B00BF238D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 605F70D89164B5DFFDB4D02F /* Pods-wxed34e654870cba42.debug.xcconfig */;
@@ -555,6 +715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = demo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -581,6 +742,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NotificationService/demo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -590,6 +754,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = demo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -616,6 +781,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NotificationService/demo-Bridging-Header.h";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -623,6 +790,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		411D349F2E053ECA00269522 /* Build configuration list for PBXNativeTarget "wxed34e654870cba42_NSE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				411D349C2E053ECA00269522 /* Debug */,
+				411D349D2E053ECA00269522 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F70B34552A70F60B00BF238D /* Build configuration list for PBXNativeTarget "wxed34e654870cba42" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

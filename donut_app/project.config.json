@@ -35,7 +35,8 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "condition": true
+    "condition": true,
+    "minifyWXML": true
   },
   "appid": "wxdc6591f567d49bb6",
   "projectname": "quickstart-wx-cloud",
