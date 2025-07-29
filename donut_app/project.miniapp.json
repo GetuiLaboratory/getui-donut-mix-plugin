@@ -108,9 +108,17 @@
       {
         "open": true,
         "pluginId": "wxed34e654870cba42",
-        "pluginVersion": "0.1.0",
+        "pluginVersion": "0.1.3",
         "loadWhenStart": true,
-        "isFromLocal": false
+        "isFromLocal": false,
+        "appexProfiles": {
+          "NSE": {
+            "enable": true,
+            "bundleID": "com.ceic.app.NotificationService",
+            "profilePath": "Dev_comceicappNotificationService.mobileprovision",
+            "distributeProfilePath": "Dev_comceicappNotificationService.mobileprovision"
+          }
+        }
       }
     ],
     "android": [
