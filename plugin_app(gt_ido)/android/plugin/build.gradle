@@ -165,13 +165,14 @@ dependencies {
 
     compileOnly("com.tencent.luggage:wxa-standalone-open-runtime-SaaA-plugin-sdk:$saaaSDKVersionDepend") {}
     embed('com.getui:gtc:3.2.18.0')
-    embed 'com.getui:gtsdk:3.3.8.0'
+    embed('com.getui:gtsdk:3.3.8.0')
+    //定制版
     embed(name: 'GSIDO-1.4.8.1-release', ext: 'aar')
 
     //implementation(name: 'gtc-3.2.17.0', ext: 'aar')
 //    embed(name: 'gtsdk-3.3.7.16', ext: 'aar')
 
-    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.google.code.gson:gson:2.13.2'
     implementation 'commons-codec:commons-codec:1.6'
     implementation 'com.android.support:support-annotations:28.0.0'
 

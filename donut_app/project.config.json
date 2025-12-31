@@ -36,7 +36,13 @@
     "packNpmRelationList": [],
     "minifyWXSS": true,
     "condition": true,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "compileWorklet": false,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "swc": false,
+    "disableSWC": true
   },
   "appid": "wxdc6591f567d49bb6",
   "projectname": "quickstart-wx-cloud",

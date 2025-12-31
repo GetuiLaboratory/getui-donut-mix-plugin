@@ -17,6 +17,7 @@ buildscript {
         minSdkVersion = 21
         compileSdkVersion = 33
         targetSdkVersion = miniAppConfig.targetSdkVersion
+        //javaVersion = JavaVersion.VERSION_11
         javaVersion = JavaVersion.VERSION_1_7
         kotlin_version = '1.6.21'
     }

@@ -25,6 +25,8 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -45,8 +47,6 @@ task generatePom {
         if (!dir.exists()) {
             dir.mkdirs()
         }
-
-    
 
         pom {
             project {

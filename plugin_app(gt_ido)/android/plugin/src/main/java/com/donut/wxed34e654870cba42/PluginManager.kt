@@ -462,7 +462,6 @@ class PluginManager : NativePluginBase(), NativePluginInterface {
      * 默认数量为5条
      */
 
-
     @SyncJsApi(methodName = "ido_setProfileForceUploadSize")
     fun setProfileForceUploadSize(data: JSONObject, activity: Activity) {
         try {
@@ -473,6 +472,13 @@ class PluginManager : NativePluginBase(), NativePluginInterface {
         } catch (e: Throwable) {
             e.printStackTrace()
         }
+    }
+
+    @SyncJsApi(methodName = "ido_setUserId")
+    fun ido_setUserId(data: JSONObject, activity: Activity) {
+         val userId = data.optString("userId")
+         GsManager.getInstance().setUserId(userId)
+         Log.d(TAG, "ido_setUserId")
     }
 
     @SyncJsApi(methodName = "ido_getVersion")
