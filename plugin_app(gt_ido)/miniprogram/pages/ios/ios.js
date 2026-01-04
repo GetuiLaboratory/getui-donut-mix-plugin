@@ -233,7 +233,15 @@ Page({
       'identifier': 'group.ent.com.getui.www'
     })
   },
-
+  setUserId() {
+    const {
+      myPlugin
+    } = this.data;
+    myPlugin.ido_setUserId({
+      'userid': 'userid_110011'
+    })
+  },
+  
   setEventUploadInterval() {
     const {
       myPlugin

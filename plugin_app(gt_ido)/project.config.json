@@ -19,7 +19,18 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "minifyWXML": true
+        "minifyWXML": true,
+        "compileWorklet": false,
+        "uglifyFileName": false,
+        "uploadWithSourceMap": true,
+        "packNpmManually": false,
+        "minifyWXSS": true,
+        "localPlugins": false,
+        "disableUseStrict": false,
+        "useCompilerPlugins": false,
+        "condition": false,
+        "swc": false,
+        "disableSWC": true
     },
     "condition": {},
     "editorSetting": {
@@ -29,7 +40,7 @@
     "srcMiniprogramRoot": "miniprogram/",
     "simulatorPluginLibVersion": {
         "wxextd2e17127608c3": "2.27.3",
-        "wxext14566970e7e9f62": "3.2.5-61"
+        "wxext14566970e7e9f62": "3.2.5-51"
     },
     "appid": "wxdc6591f567d49bb6",
     "miniappPluginId": "wxed34e654870cba42",

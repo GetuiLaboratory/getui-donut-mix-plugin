@@ -48,6 +48,8 @@
 
   <button bindtap="setApplicationGroupIdentifier" class="btn">setApplicationGroupIdentifier</button>
 
+  <button bindtap="setUserId" class="btn">setUserId</button>
+
   <button bindtap="setEventUploadInterval" class="btn">setEventUploadInterval</button>
 
   <button bindtap="setEventForceUploadSize" class="btn">setEventForceUploadSize</button>
