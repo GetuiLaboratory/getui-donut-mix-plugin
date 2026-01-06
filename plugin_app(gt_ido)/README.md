@@ -34,7 +34,7 @@
 
 
 ## iOS 使用说明：
-插件桥接了原生SDK API，原生SDK API具体说明可参考[官网文档中心 iOS API](https://docs.getui.com/ido/mobile/ios/api/)
+插件桥接了原生SDK API（GTSDK+IDO融合版本），原生SDK API具体说明可参考[官网文档中心 iOS API](https://docs.getui.com/ido/mobile/ios/api/)
 
 ### 插件js api说明：
 ```js
@@ -60,49 +60,114 @@ usage() {
       myPlugin
     } = this.data;
     
+//以下是GTSDK SDK的API
+
+    //模式切换， mode入参0 或 1
+    myPlugin.gt_setPushMode({
+      'mode': 1
+    })
+
+    //后台模式，入参0 或 1
+    myPlugin.gt_runBackgroundEnable({
+      'enable': 1
+    }) 
+
+    //同步服务端角标
+    myPlugin.gt_setBadge({
+      'badge': 3
+    })
+
+    //(IOS)注册ActivityToken PushToStartToken
+    myPlugin.gt_registerPushToStartToken({
+      'attribute': 'MyAttribute',
+      'token': 'token2',
+      'sn': '0002'
+    })
+
+
+   //绑定别名
+    myPlugin.gt_bindAlias({
+      'alias': 'superman',
+      'sn': '0001'
+    })
+    
+    //解绑别名
+    myPlugin.gt_unbindAlias({
+      'alias': 'superman',
+      'sn': '0001',
+      'isSelf': true//(Android参数,可空,默认true) 如果是true，只对当前cid做解绑；如果是false，对所有绑定该别名的cid列表做解绑.
+    })
+    
+    //设置标签
+    myPlugin.gt_setTags({
+      'tags': ['t1', 't2', 't2'],
+      'sn': '0001'//(Android参数,必填)
+    })
+
+    //修改当前App角标
+    myPlugin.gt_setLocalBadge({
+      'badge': 4
+    }) 
+
+    //注册ActivityToken pushToken
+    myPlugin.registerActivityToken({
+      'aid': '1234',
+      'token': 'token1',
+      'sn': '0001'
+    })
+
+    //获取原生GTSDK sdk版本号
+    let ver = myPlugin.gt_getVersion()
+    console.log(ver)
+
+    let noti = myPlugin.gt_launchNotification()
+    console.log(noti)
+
+
+//以下是IDO SDK的API
   
-    myPlugin.setApplicationGroupIdentifier({
+    myPlugin.ido_setApplicationGroupIdentifier({
       'identifier': 'group.ent.com.getui.www'
     })
 
-    myPlugin.setEventUploadInterval({
+    myPlugin.ido_setEventUploadInterval({
       'timeMillis': 5000
     }) 
   
-    myPlugin.setEventForceUploadSize({
+    myPlugin.ido_setEventForceUploadSize({
       'size': 30
     }) 
   
-    myPlugin.setProfileUploadInterval({
+    myPlugin.ido_setProfileUploadInterval({
       'timeMillis':5000
     })
     
-    myPlugin.setProfileForceUploadSize({
+    myPlugin.ido_setProfileForceUploadSize({
        'size':5
     })
     //上述对sdk的属性配置，需要在startsdk之前调用。
      
-    //启动sdk
-    myPlugin.startSdk({
+    //启动idosdk
+    myPlugin.ido_startSdk({
       'appId': 'xXmjbbab3b5F1m7wAYZoG2',
       'channelId': ''
     })
 		
 		//日志开关
-    myPlugin.setDebugEnable({
+    myPlugin.ido_setDebugEnable({
       'debugEnable': 1
     })
 
 	 	//获取gtcid
-    console.log('gtcid=', myPlugin.getGtcId());
+    console.log('gtcid=', myPlugin.ido_getGtcId());
  
   	//计时事件-开始
-    myPlugin.onBeginEvent({
+    myPlugin.ido_onBeginEvent({
       'eventId': '001'
     })
 
 		//计时事件-结束
-    myPlugin.onEndEvent({
+    myPlugin.ido_onEndEvent({
       'eventId': '001',
       'jsonObject': {
         'name': 'superman',
@@ -112,7 +177,7 @@ usage() {
     })
     
     //计数事件
-    myPlugin.trackCountEvent({
+    myPlugin.ido_trackCountEvent({
       'eventId': '002',
       'jsonObject': {
         'name': 'superman2',
@@ -122,7 +187,7 @@ usage() {
     })
     
     //设置用户属性
-    myPlugin.setProfile({
+    myPlugin.ido_setProfile({
       'jsonObject': {
         'property1': 'value1',
         'property2': 100
@@ -130,9 +195,13 @@ usage() {
       'withExt':'this is ext string3'
     })
 
+    //设置UserId
+    myPlugin.ido_setUserId({
+      'userid': 'userid_110011'
+    })
 
-    //获取原生sdk版本号
-    let ver = myPlugin.getVersion()
+    //获取原生idosdk版本号
+    let ver = myPlugin.ido_getVersion()
     console.log(ver)
 
 ```
